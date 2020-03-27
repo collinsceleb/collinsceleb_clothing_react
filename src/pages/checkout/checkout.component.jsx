@@ -6,6 +6,7 @@ import {
   selectCartTotal
 } from "../../redux/cart/cart.selectors";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import PaystackCheckoutButton from "../../components/paystack-button/paystack-button.component";
 
 import "./checkout.styles.scss";
 
@@ -32,8 +33,14 @@ const CheckoutPage = ({ cartItems, total }) => (
       <CheckoutItem key={cartItem.id} cartItem={cartItem} />
     ))}
     <div className="total">
-      <span>Total: ${total}</span>
+      Total: ₦{total}
     </div>
+    <div className='test-warning'>
+      *Please use the following test credit card for payments*
+      <br />
+      408 408 408 408 408 1 - Exp:  any date in the future - CVV: 408
+    </div>
+    <PaystackCheckoutButton price={total} />
   </div>
 );
 
